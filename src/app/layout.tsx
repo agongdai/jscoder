@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import MuiThemeProvider from '@jsc/theme/MuiThemeProvider';
 
-const inter = Inter({ subsets: ["latin"] });
+import fonts from '@jsc//theme/font';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={fonts.default.variable}>
         <MuiThemeProvider>
           {children}
         </MuiThemeProvider>
