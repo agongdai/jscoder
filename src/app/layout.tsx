@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import './globals.css';
 import MuiThemeProvider from '@jsc/theme/MuiThemeProvider';
 import { ThemeProvider } from 'next-themes';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import fonts from '@jsc//theme/font';
 import { JscTheme } from '@jsc/theme';
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: 'Create Next App',
