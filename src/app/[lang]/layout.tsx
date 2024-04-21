@@ -6,6 +6,8 @@ import { ThemeProvider } from 'next-themes';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { languages } from '@jsc/i18n/config';
 import { Language, ParamsWithLng } from '@jsc/types/i18n';
+import NextTopLoader from 'nextjs-toploader';
+import colors from '@jsc/theme/colors';
 
 import fonts from '@jsc//theme/font';
 import { JscTheme } from '@jsc/theme';
@@ -32,6 +34,7 @@ export default function RootLayout(
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.variable}>
+        <NextTopLoader color={colors.primaryMain} shadow='none' />
         <ThemeProvider defaultTheme={JscTheme.Dark} attribute='class'>
           <MuiThemeProvider>
             {children}

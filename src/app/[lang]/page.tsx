@@ -4,6 +4,7 @@ import { ParamsWithLng } from '@jsc/types/i18n';
 import { getTranslations } from '@jsc/i18n/translations';
 
 import { faUser } from '@fortawesome/pro-solid-svg-icons';
+import { faGear } from '@fortawesome/pro-duotone-svg-icons';
 import AwesomeIcon from '@jsc/components/AwesomeIcon';
 
 export default async function Home({ params: { lang } }: { params: ParamsWithLng }) {
@@ -15,6 +16,7 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
           <AwesomeIcon icon={faUser} size='lg' />
+          <AwesomeIcon icon={faGear} size='lg' />
           <span>
             {messages?.common?.more}
           </span>
