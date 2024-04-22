@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import { ParamsWithLng } from '@jsc/types/i18n';
 // import { getTranslations } from '@jsc/i18n/translations';
 //
@@ -52,7 +52,7 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
         />
       </div>
 
-      <Button variant='contained' color='primary' size='large'>This is a MUI button.</Button>
+      {/*<Button variant='contained' color='primary' size='large'>This is a MUI button.</Button>*/}
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
