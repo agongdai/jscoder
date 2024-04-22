@@ -3,8 +3,8 @@ import cx from 'classnames';
 
 import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Zoom from '@mui/material/Zoom';
-import Tooltip from '@mui/material/Tooltip';
+// import Zoom from '@mui/material/Zoom';
+// import Tooltip from '@mui/material/Tooltip';
 import { variant2Color } from '@jsc/theme/palette';
 import { StyleVariant } from '@jsc/types/common';
 
@@ -45,9 +45,9 @@ export default function AwesomeIcon({
   );
 
   return tooltip ? (
-    <Tooltip arrow TransitionComponent={Zoom} title={tooltip}>
+    // <Tooltip arrow TransitionComponent={Zoom} title={tooltip}>
       {iconNode}
-    </Tooltip>
+    // </Tooltip>
   ) : (
     iconNode
   );
