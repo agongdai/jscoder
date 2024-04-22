@@ -36,11 +36,11 @@ export default function RootLayout(
       <body className={fonts.default.variable}>
         {/*<NextTopLoader color={colors.primaryMain} shadow='none' />*/}
         {/*<Providers>*/}
-        {/*  <MuiThemeProvider>*/}
+          <MuiThemeProvider>
         {/*    <ScrollTopHolder>*/}
               {children}
             {/*</ScrollTopHolder>*/}
-          {/*</MuiThemeProvider>*/}
+          </MuiThemeProvider>
         {/*</Providers>*/}
       </body>
     </html>
