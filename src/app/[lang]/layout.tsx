@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import './globals.css';
 import MuiThemeProvider from '@jsc/theme/MuiThemeProvider';
-import { ThemeProvider } from 'next-themes';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { languages } from '@jsc/i18n/config';
 import { Language, ParamsWithLng } from '@jsc/types/i18n';
 import NextTopLoader from 'nextjs-toploader';
 import colors from '@jsc/theme/colors';
+import Providers from '../Providers';
+import ScrollTopHolder from '@jsc/components/ScrollTopHolder';
 
 import fonts from '@jsc//theme/font';
-import { JscTheme } from '@jsc/theme';
 
 config.autoAddCss = false;
 
@@ -35,11 +35,13 @@ export default function RootLayout(
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.variable}>
         <NextTopLoader color={colors.primaryMain} shadow='none' />
-        <ThemeProvider defaultTheme={JscTheme.Dark} attribute='class'>
+        <Providers>
           <MuiThemeProvider>
-            {children}
+            <ScrollTopHolder>
+              {children}
+            </ScrollTopHolder>
           </MuiThemeProvider>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
