@@ -33,7 +33,7 @@ export default function RootLayout(
   }) {
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body className={fonts.default.variable}>
+      <body className={fonts.default.variable} id='root'>
         {/*<NextTopLoader color={colors.primaryMain} shadow='none' />*/}
         {/*<Providers>*/}
           <MuiThemeProvider>
