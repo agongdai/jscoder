@@ -43,12 +43,14 @@ export default function AwesomeIcon({
       })}
     />
   );
+  
+  return iconNode;
 
-  return tooltip ? (
-    // <Tooltip arrow TransitionComponent={Zoom} title={tooltip}>
-      {iconNode}
-    // </Tooltip>
-  ) : (
-    iconNode
-  );
+  // return tooltip ? (
+  //   // <Tooltip arrow TransitionComponent={Zoom} title={tooltip}>
+  //     {iconNode}
+  //   // </Tooltip>
+  // ) : (
+  //   iconNode
+  // );
 }
