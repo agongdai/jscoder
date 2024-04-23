@@ -4,8 +4,8 @@ import { ParamsWithLng } from '@jsc/types/i18n';
 import BlankModal from '@jsc/components/BlankModal';
 // import { getTranslations } from '@jsc/i18n/translations';
 //
-import { faUser } from '@fortawesome/pro-solid-svg-icons';
-import { faGear } from '@fortawesome/pro-duotone-svg-icons';
+import { faUser, faChevronLeft, faChevronRight, faChevronDown, faExclamation } from '@fortawesome/pro-solid-svg-icons';
+import { faGear, faBookmark, faSunBright, faWallet, faLandmarkDome } from '@fortawesome/pro-duotone-svg-icons';
 import AwesomeIcon from '@jsc/components/AwesomeIcon';
 import UseClientDummy from '@jsc/components/UseClientDummy';
 
@@ -20,6 +20,14 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
           <code className="font-mono font-bold">src/app/page.tsx</code>
           <AwesomeIcon icon={faUser} size='lg' />
           <AwesomeIcon icon={faGear} size='lg' />
+          <AwesomeIcon icon={faChevronLeft} size='lg' />
+          <AwesomeIcon icon={faChevronRight} size='lg' />
+          <AwesomeIcon icon={faChevronDown} size='lg' />
+          <AwesomeIcon icon={faExclamation} size='lg' />
+          <AwesomeIcon icon={faBookmark} size='lg' />
+          <AwesomeIcon icon={faSunBright} size='lg' />
+          <AwesomeIcon icon={faWallet} size='lg' />
+          <AwesomeIcon icon={faLandmarkDome} size='lg' />
           <span>
             {/*{messages?.common?.more}*/}
           </span>
