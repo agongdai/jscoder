@@ -22,3 +22,28 @@ html.dark body,
 html.dark main {
   @apply bg-bg-dark-main text-white;
 }
+
+.jsc-scrollbar {
+  /** // Firefox - Gecko **/
+  scrollbar-width: thin;
+  scrollbar-color: rgba(42, 42, 42, 0.2) rgba(93, 93, 93, 0.05);
+
+  /** // IE >= 8 **/
+  scrollbar-track-color: rgba(93, 93, 93, 0.05);
+  scrollbar-face-color: rgba(42, 42, 42, 0.2);
+  width: calc(100% - 0.6rem);
+
+  @apply relative right-1 left-0 overflow-y-auto max-h-full;
+}
+
+.jsc-scrollbar::-webkit-scrollbar {
+  @apply visible w-[0.6rem] h-[0.6rem];
+}
+
+.jsc-scrollbar::-webkit-scrollbar-track {
+  @apply rounded bg-gray-400;
+}
+
+.jsc-scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded bg-gray-600;
+}

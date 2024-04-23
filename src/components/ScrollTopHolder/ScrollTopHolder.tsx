@@ -15,6 +15,7 @@ export default function ScrollTopHolder({ children }: Props) {
   const scrollTop = useJscSelector(selectScrollTop);
 
   const setScrollTopEvent = useCallback(() => {
+    console.log('setScrollTopEvent', holderRef.current);
     if (holderRef.current) {
       dispatch(setScrollTop(holderRef.current.scrollTop));
     }
@@ -31,7 +32,7 @@ export default function ScrollTopHolder({ children }: Props) {
         }
       };
     }
-  }, [setScrollTopEvent]);
+  }, [setScrollTopEvent, holderRef, dispatch]);
 
   useEffect(() => {
     if (holderRef.current && holderRef.current.scrollTop !== scrollTop) {
@@ -40,7 +41,7 @@ export default function ScrollTopHolder({ children }: Props) {
   }, [scrollTop]);
 
   return (
-    <div className='flex-1 px-4 myex-scrollbar lg:p-0 flex flex-col' ref={holderRef}>
+    <div className='flex-1 px-4 jsc-scrollbar lg:p-0 flex flex-col' ref={holderRef}>
       {children}
     </div>
   );

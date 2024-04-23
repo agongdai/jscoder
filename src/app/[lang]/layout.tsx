@@ -1,14 +1,13 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import './globals.css';
 import MuiThemeProvider from '@jsc/theme/MuiThemeProvider';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { languages } from '@jsc/i18n/config';
-import { Language, ParamsWithLng } from '@jsc/types/i18n';
-import NextTopLoader from 'nextjs-toploader';
-import colors from '@jsc/theme/colors';
+import { ParamsWithLng } from '@jsc/types/i18n';
 import Providers from '../Providers';
 import ScrollTopHolder from '@jsc/components/ScrollTopHolder';
+import Loading from './loading';
 
 import fonts from '@jsc/theme/font';
 
@@ -35,13 +34,18 @@ export default function RootLayout(
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.variable} id='root'>
         {/*<NextTopLoader color={colors.primaryMain} shadow='none' />*/}
-        {/*<Providers>*/}
-          <MuiThemeProvider>
-        {/*    <ScrollTopHolder>*/}
-              {children}
-            {/*</ScrollTopHolder>*/}
-          </MuiThemeProvider>
-        {/*</Providers>*/}
+        <Providers>
+          <main className='flex'>
+            <MuiThemeProvider>
+              <aside className=''>Side bar</aside>
+              <ScrollTopHolder>
+                <Suspense fallback={<Loading />}>
+                  {children}
+                </Suspense>
+              </ScrollTopHolder>
+            </MuiThemeProvider>
+          </main>
+        </Providers>
       </body>
     </html>
   );

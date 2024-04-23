@@ -43,7 +43,7 @@ export default function AwesomeIcon({
       })}
     />
   );
-  
+
   return iconNode;
 
   // return tooltip ? (
