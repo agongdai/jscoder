@@ -8,12 +8,20 @@ import { faUser, faChevronLeft, faChevronRight, faChevronDown, faExclamation } f
 import { faGear, faBookmark, faSunBright, faWallet, faLandmarkDome } from '@fortawesome/pro-duotone-svg-icons';
 import AwesomeIcon from '@jsc/components/AwesomeIcon';
 import UseClientDummy from '@jsc/components/UseClientDummy';
+import SignIn from '@jsc/components/SignIn';
+import SignOut from '@jsc/components/SignOut';
+import { auth } from '@jsc/auth';
 
 export default async function Home({ params: { lang } }: { params: ParamsWithLng }) {
   // const messages = await getTranslations(lang);
+  const session = await auth();
   return (
     <main className="flex flex-1 flex-col items-center justify-between p-24">
       <UseClientDummy />
+      <SignIn /><SignOut />
+      <pre>
+        {JSON.stringify(session?.user, null, 2)}
+      </pre>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
