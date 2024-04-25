@@ -1,8 +1,8 @@
-import { domSlice, DomState } from '@jsc/store/dom/slice';
+import { domSlice, DomState } from '@joy/store/dom/slice';
 
 export type RootReducer = {
-  dom: DomState,
-}
+  dom: DomState;
+};
 
 const initialState: RootReducer = {
   dom: {

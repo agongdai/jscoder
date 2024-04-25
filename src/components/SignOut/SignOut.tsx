@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { faPersonToDoor } from '@fortawesome/pro-duotone-svg-icons';
+import { authSignOut } from '@joy/app/serverActions/auth';
+import AwesomeIcon from '@joy/components/AwesomeIcon';
 import Button from '@mui/material/Button';
-import { authSignOut } from '@jsc/app/serverActions/auth';
-import AwesomeIcon from '@jsc/components/AwesomeIcon';
 
 type Props = { provider?: string } & React.ComponentPropsWithRef<typeof Button>;
 

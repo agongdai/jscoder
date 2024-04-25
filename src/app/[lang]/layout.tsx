@@ -1,18 +1,21 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import './globals.css';
-import ThemeRegistry from '@jsc/theme/ThemeRegistry';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { Language, ParamsWithLng } from '@jsc/types/i18n';
-import Providers from '../Providers';
-import ScrollTopHolder from '@jsc/components/ScrollTopHolder';
-import Loading from './loading';
 import NextTopLoader from 'nextjs-toploader';
-import { languages } from '@jsc/i18n/config';
-import colors from '@jsc/theme/colors';
 
-import fonts from '@jsc/theme/font';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import ScrollTopHolder from '@joy/components/ScrollTopHolder';
+import { languages } from '@joy/i18n/config';
+import colors from '@joy/theme/colors';
+import fonts from '@joy/theme/font';
+import ThemeRegistry from '@joy/theme/ThemeRegistry';
+import { Language, ParamsWithLng } from '@joy/types/i18n';
+
+import Providers from '../Providers';
+
+import Loading from './loading';
+
+import './globals.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 config.autoAddCss = false;
 
@@ -28,14 +31,13 @@ export async function generateStaticParams() {
   return languages.map((lang: Language) => ({ lang: lang.code }));
 }
 
-export default function RootLayout(
-  {
-    children,
-    params: { lang },
-  }: {
-    children: React.ReactNode;
-    params: ParamsWithLng;
-  }) {
+export default function RootLayout({
+  children,
+  params: { lang },
+}: {
+  children: React.ReactNode;
+  params: ParamsWithLng;
+}) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.className} id='root'>
@@ -45,9 +47,7 @@ export default function RootLayout(
             <ThemeRegistry>
               <aside className=''>Side bar</aside>
               <ScrollTopHolder>
-                <Suspense fallback={<Loading />}>
-                  {children}
-                </Suspense>
+                <Suspense fallback={<Loading />}>{children}</Suspense>
               </ScrollTopHolder>
             </ThemeRegistry>
           </main>

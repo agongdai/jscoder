@@ -1,6 +1,6 @@
+import fonts from '@joy/theme/font';
 import createTheme from '@mui/material/styles/createTheme';
 import { Shadows } from '@mui/material/styles/shadows';
-import fonts from '@jsc/theme/font';
 
 import breakpoints from './breakpoints';
 import palette from './palette';

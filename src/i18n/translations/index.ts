@@ -1,4 +1,4 @@
-import { Locale } from '@jsc/types/i18n';
+import { Locale } from '@joy/types/i18n';
 
 import 'server-only';
 

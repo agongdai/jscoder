@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { authSignIn } from '@joy/app/serverActions/auth';
 import Button from '@mui/material/Button';
-import { authSignIn } from '@jsc/app/serverActions/auth';
 
 type Props = { provider?: string } & React.ComponentPropsWithRef<typeof Button>;
 

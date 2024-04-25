@@ -6,10 +6,10 @@ import _debounce from 'lodash/debounce';
 import { Provider as ReduxProvider } from 'react-redux';
 
 import styled from '@emotion/styled';
-import store from '@jsc/store';
-import { saveState } from '@jsc/store/localStorage';
-import { JscTheme } from '@jsc/theme';
-import colors from '@jsc/theme/colors';
+import store from '@joy/store';
+import { saveState } from '@joy/store/localStorage';
+import { JscTheme } from '@joy/theme';
+import colors from '@joy/theme/colors';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // const queryClient = new QueryClient();
@@ -50,11 +50,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       {/*    error: StyledMaterialDesignContent,*/}
       {/*  }}*/}
       {/*>*/}
-        {/*<QueryClientProvider client={queryClient}>*/}
-          <ThemeProvider defaultTheme={JscTheme.Dark} attribute='class'>
-            {children}
-          </ThemeProvider>
-        {/*</QueryClientProvider>*/}
+      {/*<QueryClientProvider client={queryClient}>*/}
+      <ThemeProvider defaultTheme={JscTheme.Dark} attribute='class'>
+        {children}
+      </ThemeProvider>
+      {/*</QueryClientProvider>*/}
       {/*</SnackbarProvider>*/}
     </ReduxProvider>
   );

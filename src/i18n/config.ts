@@ -1,4 +1,4 @@
-import { Language, Locale } from '@jsc/types/i18n';
+import { Language, Locale } from '@joy/types/i18n';
 
 export const languages: Language[] = [
   {

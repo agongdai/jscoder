@@ -1,3 +1,3 @@
-import { handlers } from '@jsc/auth';
+import { handlers } from '@joy/auth';
 
 export const { GET, POST } = handlers;

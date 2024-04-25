@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Zoom from '@mui/material/Zoom';
+import { variant2Color } from '@joy/theme/palette';
+import { StyleVariant } from '@joy/types/common';
 import Tooltip from '@mui/material/Tooltip';
-import { variant2Color } from '@jsc/theme/palette';
-import { StyleVariant } from '@jsc/types/common';
+import Zoom from '@mui/material/Zoom';
 
 interface Props {
   icon: IconProp;

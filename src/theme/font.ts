@@ -1,10 +1,10 @@
 // import { Lato, Outfit, Space_Mono } from 'next/font/google';
-import { Outfit } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const outfitFont = Outfit({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+const mainFont = Poppins({
+  weight: ['300', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-poppins',
 });
 
 // const latoFont = Lato({
@@ -20,7 +20,7 @@ const outfitFont = Outfit({
 // });
 
 const fonts = {
-  default: outfitFont,
+  default: mainFont,
   // spaceMono,
 };
 

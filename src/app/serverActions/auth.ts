@@ -1,5 +1,5 @@
 'use server';
-import { signIn, signOut } from '@jsc/auth';
+import { signIn, signOut } from '@joy/auth';
 
 export async function authSignIn() {
   await signIn();

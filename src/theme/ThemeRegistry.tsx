@@ -4,12 +4,12 @@ import { useServerInsertedHTML } from 'next/navigation';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
+import useJscTheme from '@joy/hooks/useJscTheme';
+import { JscTheme } from '@joy/theme/index';
+import DarkTheme from '@joy/theme/jsc-dark';
+import LightTheme from '@joy/theme/jsc-light';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import useJscTheme from '@jsc/hooks/useJscTheme';
-import { JscTheme } from '@jsc/theme/index';
-import DarkTheme from '@jsc/theme/jsc-dark';
-import LightTheme from '@jsc/theme/jsc-light';
 
 // This implementation is from emotion-js
 // https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
@@ -64,8 +64,6 @@ export default function ThemeRegistry({
       />
     );
   });
-
-  console.log('theme', theme);
 
   if (!theme) {
     return null;

@@ -1,9 +1,9 @@
 'use client';
 import React, { useCallback, useEffect } from 'react';
 
-import { useJscDispatch, useJscSelector } from '@jsc/store';
-import { setScrollTop } from '@jsc/store/actions';
-import { selectScrollTop } from '@jsc/store/dom/selectors';
+import { useJscDispatch, useJscSelector } from '@joy/store';
+import { setScrollTop } from '@joy/store/actions';
+import { selectScrollTop } from '@joy/store/dom/selectors';
 
 interface Props {
   children: React.ReactNode;

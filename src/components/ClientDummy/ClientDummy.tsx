@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
-import { useJscDispatch, useJscSelector } from '@jsc/store';
-import { selectScrollTop } from '@jsc/store/dom/selectors';
-import { setScrollTop } from '@jsc/store/dom/actions';
+
+import { useJscDispatch, useJscSelector } from '@joy/store';
+import { setScrollTop } from '@joy/store/dom/actions';
+import { selectScrollTop } from '@joy/store/dom/selectors';
 
 export default function ClientDummy() {
   const dispatch = useJscDispatch();
@@ -11,5 +12,5 @@ export default function ClientDummy() {
     <div onClick={() => dispatch(setScrollTop(scrollTop + 1))}>
       UseClientDummy scrollTop: {scrollTop}
     </div>
-  )
+  );
 }
