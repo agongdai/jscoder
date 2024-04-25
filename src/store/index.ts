@@ -12,7 +12,7 @@ const store = configureStore({
   reducer: {
     dom: domReducer,
   },
-  // preloadedState: loadState(),
+  preloadedState: loadState(),
 });
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`

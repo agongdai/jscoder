@@ -14,6 +14,7 @@ import LightTheme from '@jsc/theme/jsc-light';
 // This implementation is from emotion-js
 // https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
 // Tried to follow https://mui.com/material-ui/integrations/nextjs/, but the page styles are not applied initially, then later applied.
+// @note Loading localStorage value to redux initially will show hydration mismatch error.
 export default function ThemeRegistry({
   options = { key: 'mui' },
   children,

@@ -2,42 +2,43 @@ import Image from "next/image";
 import Button from '@mui/material/Button';
 import { ParamsWithLng } from '@jsc/types/i18n';
 import BlankModal from '@jsc/components/BlankModal';
-// import { getTranslations } from '@jsc/i18n/translations';
+import { getTranslations } from '@jsc/i18n/translations';
 //
 import { faUser, faChevronLeft, faChevronRight, faChevronDown, faExclamation } from '@fortawesome/pro-solid-svg-icons';
 import { faGear, faBookmark, faSunBright, faWallet, faLandmarkDome } from '@fortawesome/pro-duotone-svg-icons';
 import AwesomeIcon from '@jsc/components/AwesomeIcon';
-import UseClientDummy from '@jsc/components/UseClientDummy';
+import ClientDummy from '@jsc/components/ClientDummy';
 import SignIn from '@jsc/components/SignIn';
 import SignOut from '@jsc/components/SignOut';
 import { auth } from '@jsc/auth';
 
 export default async function Home({ params: { lang } }: { params: ParamsWithLng }) {
-  // const messages = await getTranslations(lang);
+  const messages = await getTranslations(lang);
   const session = await auth();
   return (
-    <main className="flex flex-1 flex-col items-center justify-between p-24">
-      <UseClientDummy />
+    <div className="flex flex-col items-center">
+      <ClientDummy />
       <SignIn /><SignOut />
       <pre>
         {JSON.stringify(session?.user, null, 2)}
       </pre>
+      <BlankModal />
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
-          <AwesomeIcon icon={faUser} size='lg' />
+          <AwesomeIcon icon={faUser} size='lg' tooltip='THis is a long tooltip on icon' />
           <AwesomeIcon icon={faGear} size='lg' />
-          {/*<AwesomeIcon icon={faChevronLeft} size='lg' />*/}
-          {/*<AwesomeIcon icon={faChevronRight} size='lg' />*/}
-          {/*<AwesomeIcon icon={faChevronDown} size='lg' />*/}
-          {/*<AwesomeIcon icon={faExclamation} size='lg' />*/}
-          {/*<AwesomeIcon icon={faBookmark} size='lg' />*/}
-          {/*<AwesomeIcon icon={faSunBright} size='lg' />*/}
-          {/*<AwesomeIcon icon={faWallet} size='lg' />*/}
-          {/*<AwesomeIcon icon={faLandmarkDome} size='lg' />*/}
+          <AwesomeIcon icon={faChevronLeft} size='lg' />
+          <AwesomeIcon icon={faChevronRight} size='lg' />
+          <AwesomeIcon icon={faChevronDown} size='lg' />
+          <AwesomeIcon icon={faExclamation} size='lg' />
+          <AwesomeIcon icon={faBookmark} size='lg' />
+          <AwesomeIcon icon={faSunBright} size='lg' />
+          <AwesomeIcon icon={faWallet} size='lg' />
+          <AwesomeIcon icon={faLandmarkDome} size='lg' />
           <span>
-            {/*{messages?.common?.more}*/}
+            {messages?.common?.more}
           </span>
         </p>
         <div className="bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
@@ -141,6 +142,6 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
           </p>
         </a>
       </div>
-    </main>
+    </div>
   );
 }

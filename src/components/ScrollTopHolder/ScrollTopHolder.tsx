@@ -15,7 +15,6 @@ export default function ScrollTopHolder({ children }: Props) {
   const scrollTop = useJscSelector(selectScrollTop);
 
   const setScrollTopEvent = useCallback(() => {
-    console.log('setScrollTopEvent', holderRef.current);
     if (holderRef.current) {
       dispatch(setScrollTop(holderRef.current.scrollTop));
     }
@@ -43,6 +42,7 @@ export default function ScrollTopHolder({ children }: Props) {
   return (
     <div className='flex-1 px-4 jsc-scrollbar lg:p-0 flex flex-col' ref={holderRef}>
       {children}
+      ScrollTopHolder scrollTop: {scrollTop}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useJscDispatch, useJscSelector } from '@jsc/store';
 import { selectScrollTop } from '@jsc/store/dom/selectors';
 import { setScrollTop } from '@jsc/store/dom/actions';
 
-export default function UseClientDummy() {
+export default function ClientDummy() {
   const dispatch = useJscDispatch();
   const scrollTop = useJscSelector(selectScrollTop);
   return (
