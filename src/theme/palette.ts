@@ -1,4 +1,4 @@
-import { StyleVariant } from '@joy//types/common';
+import { StyleVariant } from '@joy/types/common';
 
 import colors from './colors';
 
