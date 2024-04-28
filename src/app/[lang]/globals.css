@@ -47,3 +47,7 @@ html.dark main {
 .jsc-scrollbar::-webkit-scrollbar-thumb {
   @apply rounded bg-gray-600;
 }
+
+.test {
+  color: red !important;
+}

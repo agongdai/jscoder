@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from './Button';
+import Button from '@mui/material/Button';
 
 import './header.css';
 
@@ -35,7 +35,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1 className='grid text-gray-500'>Acme</h1>
       </div>
       <div>
         {user ? (
@@ -43,12 +43,18 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
             <span className='welcome'>
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size='small' onClick={onLogout} label='Log out' />
+            <Button size='small' onClick={onLogout}>
+              Lout out
+            </Button>
           </>
         ) : (
           <>
-            <Button size='small' onClick={onLogin} label='Log in' />
-            <Button primary size='small' onClick={onCreateAccount} label='Sign up' />
+            <Button size='small' onClick={onLogin}>
+              Log in
+            </Button>
+            <Button color='primary' size='small' onClick={onCreateAccount}>
+              Sign up
+            </Button>
           </>
         )}
       </div>

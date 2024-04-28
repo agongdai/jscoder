@@ -24,7 +24,8 @@
       "files": [
         "**/*.js",
         "**/*.ts",
-        "**/*.tsx"
+        "**/*.tsx",
+        "**/*.mdx"
       ],
       "rules": {
         "simple-import-sort/imports": [

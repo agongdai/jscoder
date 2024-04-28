@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
@@ -31,9 +30,9 @@ export const withMuiTheme = (Story: React.FC, context: Record<string, any>) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box p={8}>
+      <div id='root'>
         <Story />
-      </Box>
+      </div>
     </ThemeProvider>
   );
 };

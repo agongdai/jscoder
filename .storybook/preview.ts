@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react';
 import { withMuiTheme } from './with-mui-theme.decorator';
 
+import '../src/app/[lang]/globals.css';
+
 const preview: Preview = {
   parameters: {
     controls: {
