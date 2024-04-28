@@ -4,8 +4,8 @@ import { useServerInsertedHTML } from 'next/navigation';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import useJscTheme from '@joy/hooks/useJscTheme';
-import { JscTheme } from '@joy/theme/index';
+import useJoyTheme from '@joy/hooks/useJoyTheme';
+import { JoyTheme } from '@joy/theme/index';
 import DarkTheme from '@joy/theme/jsc-dark';
 import LightTheme from '@joy/theme/jsc-light';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -22,8 +22,8 @@ export default function ThemeRegistry({
   options?: Parameters<typeof createCache>[0];
   children: React.ReactNode;
 }) {
-  const { theme } = useJscTheme();
-  const appTheme = theme === JscTheme.Dark ? DarkTheme : LightTheme;
+  const { theme } = useJoyTheme();
+  const appTheme = theme === JoyTheme.Dark ? DarkTheme : LightTheme;
 
   const [{ cache, flush }] = React.useState(() => {
     const cache = createCache(options);

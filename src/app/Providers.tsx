@@ -8,7 +8,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import styled from '@emotion/styled';
 import store from '@joy/store';
 import { saveState } from '@joy/store/localStorage';
-import { JscTheme } from '@joy/theme';
+import { JoyTheme } from '@joy/theme';
 import colors from '@joy/theme/colors';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -51,7 +51,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       {/*  }}*/}
       {/*>*/}
       {/*<QueryClientProvider client={queryClient}>*/}
-      <ThemeProvider defaultTheme={JscTheme.Dark} attribute='class'>
+      <ThemeProvider defaultTheme={JoyTheme.Dark} attribute='class'>
         {children}
       </ThemeProvider>
       {/*</QueryClientProvider>*/}

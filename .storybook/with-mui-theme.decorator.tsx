@@ -2,7 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
-import { DEFAULT_THEME, JscTheme, themes } from '../src/theme';
+import { DEFAULT_THEME, JoyTheme, themes } from '../src/theme';
 
 import '../src/app/[lang]/globals.css';
 
@@ -11,7 +11,7 @@ export const withMuiTheme = (Story: React.FC, context: Record<string, any>) => {
 
   // only recompute the theme if the themeKey changes
   const theme = React.useMemo(
-    () => themes[themeKey as JscTheme] || themes[JscTheme.Light],
+    () => themes[themeKey as JoyTheme] || themes[JoyTheme.Light],
     [themeKey],
   );
 
@@ -20,7 +20,7 @@ export const withMuiTheme = (Story: React.FC, context: Record<string, any>) => {
 
     // Set the "data-mode" attribute on the iFrame html tag
     htmlTag.setAttribute('data-mode', themeKey);
-    if (themeKey === JscTheme.Dark) {
+    if (themeKey === JoyTheme.Dark) {
       htmlTag.classList.add('dark');
     } else {
       htmlTag.classList.remove('dark');

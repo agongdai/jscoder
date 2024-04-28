@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-export default function useJscTheme() {
+export default function useJoyTheme() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 

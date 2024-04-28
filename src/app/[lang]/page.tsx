@@ -21,6 +21,7 @@ import BlankModal from '@joy/components/BlankModal';
 import ClientDummy from '@joy/components/ClientDummy';
 import SignIn from '@joy/components/SignIn';
 import SignOut from '@joy/components/SignOut';
+import ThemeSwitch from '@joy/components/ThemeSwitch';
 import { getTranslations } from '@joy/i18n/translations';
 import { ParamsWithLng } from '@joy/types/i18n';
 import Button from '@mui/material/Button';
@@ -31,6 +32,7 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
   return (
     <div className='flex flex-col items-center'>
       <h1>H1 Title</h1>
+      <ThemeSwitch />
       <ClientDummy />
       <SignIn />
       <SignOut />
