@@ -1,7 +1,7 @@
 import { Theme } from '@mui/material/styles/createTheme';
 
-import darkTheme from './jsc-dark';
-import lightTheme from './jsc-light';
+import darkTheme from './joy-dark';
+import lightTheme from './joy-light';
 
 export * from './palette';
 

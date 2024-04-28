@@ -40,7 +40,7 @@ export default function ScrollTopHolder({ children }: Props) {
   }, [scrollTop]);
 
   return (
-    <div className='flex-1 px-4 jsc-scrollbar lg:p-0 flex flex-col' ref={holderRef}>
+    <div className='flex-1 px-4 joy-scrollbar lg:p-0 flex flex-col' ref={holderRef}>
       {children}
       ScrollTopHolder scrollTop: {scrollTop}
     </div>

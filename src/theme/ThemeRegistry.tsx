@@ -6,8 +6,8 @@ import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import useJoyTheme from '@joy/hooks/useJoyTheme';
 import { JoyTheme } from '@joy/theme/index';
-import DarkTheme from '@joy/theme/jsc-dark';
-import LightTheme from '@joy/theme/jsc-light';
+import DarkTheme from '@joy/theme/joy-dark';
+import LightTheme from '@joy/theme/joy-light';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 

@@ -36,15 +36,15 @@ html.dark main {
   @apply relative right-1 left-0 overflow-y-auto max-h-full;
 }
 
-.jsc-scrollbar::-webkit-scrollbar {
+.joy-scrollbar::-webkit-scrollbar {
   @apply visible w-[0.6rem] h-[0.6rem];
 }
 
-.jsc-scrollbar::-webkit-scrollbar-track {
+.joy-scrollbar::-webkit-scrollbar-track {
   @apply rounded bg-gray-400;
 }
 
-.jsc-scrollbar::-webkit-scrollbar-thumb {
+.joy-scrollbar::-webkit-scrollbar-thumb {
   @apply rounded bg-gray-600;
 }
 
