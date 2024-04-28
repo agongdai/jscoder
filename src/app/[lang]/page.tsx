@@ -30,6 +30,7 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
   const session = await auth();
   return (
     <div className='flex flex-col items-center'>
+      <h1>H1 Title</h1>
       <ClientDummy />
       <SignIn />
       <SignOut />

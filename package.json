@@ -11,6 +11,8 @@
     "lint": "next lint --fix",
     "prepare": "husky install",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|tsx|js|scss|css)\" --write",
+    "cypress": "cypress open",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress",
     "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -62,6 +64,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "cypress": "^13.8.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-config-prettier": "^9.1.0",
