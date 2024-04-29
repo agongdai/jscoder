@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useEffect } from 'react';
 
-import { useJscDispatch, useJscSelector } from '@joy/store';
+import { useJoyDispatch, useJoySelector } from '@joy/store';
 import { setScrollTop } from '@joy/store/actions';
 import { selectScrollTop } from '@joy/store/dom/selectors';
 
@@ -10,9 +10,9 @@ interface Props {
 }
 
 export default function ScrollTopHolder({ children }: Props) {
-  const dispatch = useJscDispatch();
+  const dispatch = useJoyDispatch();
   const holderRef = React.useRef<HTMLDivElement>(null);
-  const scrollTop = useJscSelector(selectScrollTop);
+  const scrollTop = useJoySelector(selectScrollTop);
 
   const setScrollTopEvent = useCallback(() => {
     if (holderRef.current) {

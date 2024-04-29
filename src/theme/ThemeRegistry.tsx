@@ -5,16 +5,17 @@ import { useServerInsertedHTML } from 'next/navigation';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import useJoyTheme from '@joy/hooks/useJoyTheme';
+import { useJoySelector } from '@joy/store';
+import { selectPrimaryColor } from '@joy/store/theming/selectors';
 import { JoyTheme } from '@joy/theme/index';
-import DarkTheme from '@joy/theme/joy-dark';
-import LightTheme from '@joy/theme/joy-light';
+import DarkTheme, { darkThemeOptions } from '@joy/theme/joy-dark';
+import LightTheme, { lightThemeOptions } from '@joy/theme/joy-light';
 import CssBaseline from '@mui/material/CssBaseline';
+import createTheme from '@mui/material/styles/createTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 // This implementation is from emotion-js
 // https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
-// Tried to follow https://mui.com/material-ui/integrations/nextjs/, but the page styles are not applied initially, then later applied.
-// @note Loading localStorage value to redux initially will show hydration mismatch error.
 export default function ThemeRegistry({
   options = { key: 'mui' },
   children,
@@ -23,7 +24,15 @@ export default function ThemeRegistry({
   children: React.ReactNode;
 }) {
   const { theme } = useJoyTheme();
-  const appTheme = theme === JoyTheme.Dark ? DarkTheme : LightTheme;
+  const primaryColor = useJoySelector(selectPrimaryColor);
+
+  let appTheme = theme === JoyTheme.Dark ? DarkTheme : LightTheme;
+
+  if (primaryColor.length > 2) {
+    const customTheme = createTheme(theme === JoyTheme.Dark ? darkThemeOptions : lightThemeOptions);
+    customTheme.palette.primary.main = primaryColor;
+    appTheme = customTheme;
+  }
 
   const [{ cache, flush }] = React.useState(() => {
     const cache = createCache(options);

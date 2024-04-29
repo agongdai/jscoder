@@ -1,15 +1,3 @@
-import { domSlice, DomState } from '@joy/store/dom/slice';
-
-export type RootReducer = {
-  dom: DomState;
-};
-
-const initialState: RootReducer = {
-  dom: {
-    ...domSlice.getInitialState(),
-  },
-};
-
 const KEY = 'redux';
 
 export function loadState() {

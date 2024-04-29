@@ -1,5 +1,5 @@
 import fonts from '@joy/theme/font';
-import createTheme from '@mui/material/styles/createTheme';
+import createTheme, { ThemeOptions } from '@mui/material/styles/createTheme';
 import { Shadows } from '@mui/material/styles/shadows';
 
 import breakpoints from './breakpoints';
@@ -7,7 +7,7 @@ import palette from './palette';
 
 // import '@mui/lab/themeAugmentation';
 
-const theme = createTheme({
+export const lightThemeOptions: ThemeOptions = {
   breakpoints: {
     values: {
       xs: 0,
@@ -293,7 +293,9 @@ const theme = createTheme({
       },
     },
   },
-});
+};
+
+const theme = createTheme(lightThemeOptions);
 
 declare module '@mui/material/styles' {
   interface Palette {
