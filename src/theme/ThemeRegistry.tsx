@@ -4,14 +4,8 @@ import { useServerInsertedHTML } from 'next/navigation';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import useJoyTheme from '@joy/hooks/useJoyTheme';
-import { useJoySelector } from '@joy/store';
-import { selectPrimaryColor } from '@joy/store/theming/selectors';
-import { JoyTheme } from '@joy/theme/index';
-import DarkTheme, { darkThemeOptions } from '@joy/theme/joy-dark';
-import LightTheme, { lightThemeOptions } from '@joy/theme/joy-light';
+import useJoyMuiTheme from '@joy/hooks/useJoyMuiTheme';
 import CssBaseline from '@mui/material/CssBaseline';
-import createTheme from '@mui/material/styles/createTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 // This implementation is from emotion-js
@@ -23,16 +17,7 @@ export default function ThemeRegistry({
   options?: Parameters<typeof createCache>[0];
   children: React.ReactNode;
 }) {
-  const { theme } = useJoyTheme();
-  const primaryColor = useJoySelector(selectPrimaryColor);
-
-  let appTheme = theme === JoyTheme.Dark ? DarkTheme : LightTheme;
-
-  if (primaryColor.length > 2) {
-    const customTheme = createTheme(theme === JoyTheme.Dark ? darkThemeOptions : lightThemeOptions);
-    customTheme.palette.primary.main = primaryColor;
-    appTheme = customTheme;
-  }
+  const appTheme = useJoyMuiTheme();
 
   const [{ cache, flush }] = React.useState(() => {
     const cache = createCache(options);
@@ -74,7 +59,7 @@ export default function ThemeRegistry({
     );
   });
 
-  if (!theme) {
+  if (!appTheme) {
     return null;
   }
 
