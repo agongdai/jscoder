@@ -63,6 +63,8 @@ import GitHub from 'next-auth/providers/github';
 // import Gitlab from "next-auth/providers/gitlab"
 import Google from 'next-auth/providers/google';
 
+import { prisma } from '@joy/db';
+
 export const config = {
   trustHost: true, // @github https://github.com/nextauthjs/next-auth/issues/6113
   theme: {
@@ -133,6 +135,27 @@ export const config = {
     // Zoom,
   ],
   callbacks: {
+    async session({ session }: { session: Session }) {
+      const sessionUser = session?.user;
+      if (sessionUser?.email && !sessionUser.username) {
+        const user = await prisma.user.findUnique({
+          where: {
+            email: sessionUser.email || '',
+          },
+        });
+
+        if (user) {
+          session.user = {
+            ...sessionUser,
+            joyId: user?.joyId || 0,
+            isAdmin: user?.isAdmin || false,
+            username: user?.username || '',
+          };
+        }
+      }
+
+      return session as Session;
+    },
   },
 } satisfies NextAuthConfig;
 

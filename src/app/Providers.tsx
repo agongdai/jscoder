@@ -2,7 +2,7 @@
 import React from 'react';
 import { ThemeProvider } from 'next-themes';
 import _debounce from 'lodash/debounce';
-// import { MaterialDesignContent, SnackbarProvider } from 'notistack';
+import { MaterialDesignContent, SnackbarProvider } from 'notistack';
 import { Provider as ReduxProvider } from 'react-redux';
 
 import styled from '@emotion/styled';
@@ -14,20 +14,20 @@ import colors from '@joy/theme/colors';
 
 // const queryClient = new QueryClient();
 
-// const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
-//   '&.notistack-MuiContent-success': {
-//     backgroundColor: colors.successMain,
-//   },
-//   '&.notistack-MuiContent-error': {
-//     backgroundColor: colors.errorMain,
-//   },
-//   '&.notistack-MuiContent-info': {
-//     backgroundColor: colors.infoMain,
-//   },
-//   '&.notistack-MuiContent-warning': {
-//     backgroundColor: colors.warningMain,
-//   },
-// }));
+const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
+  '&.notistack-MuiContent-success': {
+    backgroundColor: colors.successMain,
+  },
+  '&.notistack-MuiContent-error': {
+    backgroundColor: colors.errorMain,
+  },
+  '&.notistack-MuiContent-info': {
+    backgroundColor: colors.infoMain,
+  },
+  '&.notistack-MuiContent-warning': {
+    backgroundColor: colors.warningMain,
+  },
+}));
 
 // here we subscribe to the store changes
 store.subscribe(
@@ -41,21 +41,21 @@ store.subscribe(
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ReduxProvider store={store}>
-      {/*<SnackbarProvider*/}
-      {/*  dense*/}
-      {/*  className='text-base'*/}
-      {/*  autoHideDuration={3000}*/}
-      {/*  Components={{*/}
-      {/*    success: StyledMaterialDesignContent,*/}
-      {/*    error: StyledMaterialDesignContent,*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*<QueryClientProvider client={queryClient}>*/}
-      <ThemeProvider defaultTheme={JoyTheme.Dark} attribute='class'>
-        {children}
-      </ThemeProvider>
-      {/*</QueryClientProvider>*/}
-      {/*</SnackbarProvider>*/}
+      <SnackbarProvider
+        dense
+        className='text-base'
+        autoHideDuration={3000}
+        Components={{
+          success: StyledMaterialDesignContent,
+          error: StyledMaterialDesignContent,
+        }}
+      >
+        {/*<QueryClientProvider client={queryClient}>*/}
+        <ThemeProvider defaultTheme={JoyTheme.Dark} attribute='class'>
+          {children}
+        </ThemeProvider>
+        {/*</QueryClientProvider>*/}
+      </SnackbarProvider>
     </ReduxProvider>
   );
 }

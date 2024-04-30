@@ -6,7 +6,7 @@ import AwesomeIcon from '@joy/components/AwesomeIcon';
 import JoyTooltip from '@joy/components/ui/JoyTooltip';
 import useJoyTheme from '@joy/hooks/useJoyTheme';
 import { JoyTheme } from '@joy/theme';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 export default function ThemeSwitch() {
   const { theme, setTheme } = useJoyTheme();

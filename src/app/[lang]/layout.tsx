@@ -1,8 +1,11 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import NextTopLoader from 'nextjs-toploader';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { auth } from '@joy/auth';
+import NewUserCheck from '@joy/components/NewUserCheck';
 import ScrollTopHolder from '@joy/components/ScrollTopHolder';
 import { languages } from '@joy/i18n/config';
 import colors from '@joy/theme/colors';
@@ -31,13 +34,14 @@ export async function generateStaticParams() {
   return languages.map((lang: Language) => ({ lang: lang.code }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { lang },
 }: {
   children: React.ReactNode;
   params: ParamsWithLng;
 }) {
+  const session = await auth();
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.className} id='root'>
@@ -45,7 +49,10 @@ export default function RootLayout({
         <Providers>
           <main className='flex'>
             <ThemeRegistry>
-              <aside className=''>Side bar</aside>
+              <SessionProvider session={session}>
+                <NewUserCheck />
+                <aside className=''>Side bar</aside>
+              </SessionProvider>
               <ScrollTopHolder>
                 <Suspense fallback={<Loading />}>{children}</Suspense>
               </ScrollTopHolder>

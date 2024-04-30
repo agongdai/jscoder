@@ -5,7 +5,7 @@ import { Shadows } from '@mui/material/styles/shadows';
 import breakpoints from './breakpoints';
 import palette from './palette';
 
-// import '@mui/lab/themeAugmentation';
+import '@mui/lab/themeAugmentation';
 
 export const darkThemeOptions: ThemeOptions = {
   breakpoints: {
