@@ -5,8 +5,11 @@ import NextTopLoader from 'nextjs-toploader';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { auth } from '@joy/auth';
+import Footer from '@joy/components/Footer';
+import Header from '@joy/components/Header';
 import NewUserCheck from '@joy/components/NewUserCheck';
 import ScrollTopHolder from '@joy/components/ScrollTopHolder';
+import Sidebar from '@joy/components/Sidebar';
 import { languages } from '@joy/i18n/config';
 import colors from '@joy/theme/colors';
 import fonts from '@joy/theme/font';
@@ -45,16 +48,25 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={fonts.default.className} id='root'>
+        <style>{`
+          :root {
+            --primary-color: ${session?.user?.username};
+          }
+        `}</style>
         <NextTopLoader color={colors.primaryMain} shadow='none' />
         <Providers>
           <main className='flex'>
             <ThemeRegistry>
               <SessionProvider session={session}>
                 <NewUserCheck />
-                <aside className=''>Side bar</aside>
+                <Sidebar />
               </SessionProvider>
               <ScrollTopHolder>
+                <SessionProvider session={session}>
+                  <Header />
+                </SessionProvider>
                 <Suspense fallback={<Loading />}>{children}</Suspense>
+                <Footer />
               </ScrollTopHolder>
             </ThemeRegistry>
           </main>

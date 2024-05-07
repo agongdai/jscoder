@@ -11,6 +11,34 @@ model User {
   image    String?
   isAdmin  Boolean?
   provider String?
+  themes   Theme[]
+}
+
+model Theme {
+  joyId       Int          @id @default(autoincrement())
+  name        String
+  user        User         @relation(fields: [userJoyId], references: [joyId])
+  userJoyId   Int
+  themeColors ThemeColor[]
+}
+
+// predefined name of the color: Material 3 color style names
+model ColorVariable {
+  joyId       Int          @id @default(autoincrement())
+  name        String
+  category    String? // system, reference, surface, etc.
+  key         String
+  description String?
+  themeColors ThemeColor[]
+}
+
+model ThemeColor {
+  joyId              Int           @id @default(autoincrement())
+  theme              Theme         @relation(fields: [themeJoyId], references: [joyId])
+  themeJoyId         Int
+  color              String // color in the format of hex, rgba, hsl, etc.
+  colorVariable      ColorVariable @relation(fields: [colorVariableJoyId], references: [joyId])
+  colorVariableJoyId Int
 }
 
 generator client {

@@ -1,0 +1,53 @@
+module.exports = [
+  'sysPrimary',
+  'sysOnPrimary',
+  'sysPrimaryContainer',
+  'sysPrimaryFixed',
+  'sysOnPrimaryFixed',
+  'sysPrimaryFixedDim',
+  'sysOnPrimaryFixedVariant',
+
+  'sysSecondary',
+  'sysOnSecondary',
+  'sysSecondaryContainer',
+  'sysSecondaryFixed',
+  'sysOnSecondaryFixed',
+  'sysSecondaryFixedDim',
+  'sysOnSecondaryFixedVariant',
+
+  'sysTertiary',
+  'sysOnTertiary',
+  'sysTertiaryContainer',
+  'sysTertiaryFixed',
+  'sysOnTertiaryFixed',
+  'sysTertiaryFixedDim',
+  'sysOnTertiaryFixedVariant',
+
+  'sysError',
+  'sysOnError',
+  'sysErrorContainer',
+  'sysOnErrorContainer',
+
+  'sysWarning',
+  'sysOnWarning',
+  'sysWarningContainer',
+  'sysOnWarningContainer',
+
+  'sysInfo',
+  'sysOnInfo',
+  'sysInfoContainer',
+  'sysOnInfoContainer',
+
+  'sysSuccess',
+  'sysOnSuccess',
+  'sysSuccessContainer',
+  'sysOnSuccessContainer',
+
+  'sysOutline',
+  'sysBackground',
+  'sysOnBackground',
+  'sysSurface',
+  'sysOnSurface',
+  'sysSurfaceVariant',
+  'sysInverseSurface',
+];
