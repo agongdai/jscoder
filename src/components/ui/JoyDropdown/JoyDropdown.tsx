@@ -4,7 +4,8 @@ import React from 'react';
 import JoyLink from '@joy/components/ui/JoyLink';
 import JoyTooltip from '@joy/components/ui/JoyTooltip';
 import { Option } from '@joy/types/common';
-import { Menu, MenuItem } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 interface Props {
   menus: Option[];

@@ -7,7 +7,7 @@ import AwesomeIcon from '@joy/components/AwesomeIcon';
 import JoyDropdown from '@joy/components/ui/JoyDropdown';
 import useLocale from '@joy/hooks/useLocale';
 import { defaultLocale, languages } from '@joy/i18n/config';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 export default function LangSwitch() {
   const { locale, pathName } = useLocale();
