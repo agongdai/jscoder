@@ -7,7 +7,9 @@ import {
   faSunBright,
   faWallet,
 } from '@fortawesome/pro-duotone-svg-icons';
-//
+
+import { Metadata } from 'next';
+import Seo from '@joy/data/seo.json';
 import {
   faChevronDown,
   faChevronLeft,
@@ -26,6 +28,21 @@ import JoyLink from '@joy/components/ui/JoyLink';
 import { getTranslations } from '@joy/i18n/translations';
 import { ParamsWithLng } from '@joy/types/i18n';
 import Button from '@mui/material/Button';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(Seo.siteUrl),
+  title: Seo.title,
+  description: Seo.description,
+  keywords: Seo.keywords,
+  openGraph: {
+    title: Seo.title,
+    description: Seo.description,
+  },
+  twitter: {
+    title: Seo.title,
+    description: Seo.description,
+  },
+};
 
 export default async function Home({ params: { lang } }: { params: ParamsWithLng }) {
   const messages = await getTranslations(lang);
