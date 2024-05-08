@@ -15,7 +15,16 @@ const nextConfig = {
         hostname: 'avatars.githubusercontent.com',
       },
     ]
-  }
+  },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  productionBrowserSourceMaps: true,
+  compress: true,
+  experimental: {
+    serverActions: {
+      // edit: updated to new key. Was previously `allowedForwardedHosts`
+      allowedOrigins: ['jscoder.io'],
+    },
+  },
 };
 
 const withMDX = createMDX({

@@ -2,7 +2,7 @@ const paletteBase = {
   black: '#000',
   white: '#fff',
 
-  primaryMain: 'rgba(234, 84, 85, 1)',
+  primaryMain: 'rgb(0, 132, 255)',
   primaryDark: 'rgba(234, 72, 73, 1)',
   primary50: 'rgba(234, 84, 85, 0.5)',
   primary25: 'rgba(234, 84, 85, 0.25)',

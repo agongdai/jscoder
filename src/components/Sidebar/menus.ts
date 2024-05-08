@@ -12,7 +12,7 @@ import {
   faUsers,
   faWallet,
 } from '@fortawesome/pro-duotone-svg-icons';
-import { IMenu } from '@myex/types/common';
+import { IMenu } from '@joy/types/common';
 
 const menus: IMenu[] = [
   {
