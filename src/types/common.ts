@@ -45,3 +45,16 @@ export const enum StyleVariant {
   Highlight = 'highlight',
   Default = '',
 }
+
+export const enum ValueFormat {
+  Number = 'number',
+  Date = 'date',
+  Boolean = 'boolean',
+  String = 'string',
+  UserActions = 'userActions',
+  Image = 'image',
+  Link = 'link',
+  DateTime = 'dateTime',
+}
+
+export type Value = string | number | boolean | Date | null | undefined;

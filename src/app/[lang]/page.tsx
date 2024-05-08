@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -7,9 +8,6 @@ import {
   faSunBright,
   faWallet,
 } from '@fortawesome/pro-duotone-svg-icons';
-
-import { Metadata } from 'next';
-import Seo from '@joy/data/seo.json';
 import {
   faChevronDown,
   faChevronLeft,
@@ -25,6 +23,7 @@ import SignIn from '@joy/components/SignIn';
 import SignOut from '@joy/components/SignOut';
 import ThemeSwitch from '@joy/components/ThemeSwitch';
 import JoyLink from '@joy/components/ui/JoyLink';
+import Seo from '@joy/data/seo.json';
 import { getTranslations } from '@joy/i18n/translations';
 import { ParamsWithLng } from '@joy/types/i18n';
 import Button from '@mui/material/Button';

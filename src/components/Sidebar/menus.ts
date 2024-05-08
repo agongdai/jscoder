@@ -2,6 +2,7 @@ import {
   faChartMixedUpCircleDollar,
   faCoins,
   faDisplayChartUpCircleDollar,
+  faDroplet,
   faGauge,
   faHammerBrush,
   faLandmarkDome,
@@ -9,7 +10,6 @@ import {
   faScrewdriverWrench,
   faSliders,
   faUserRobotXmarks,
-  faUsers,
   faWallet,
 } from '@fortawesome/pro-duotone-svg-icons';
 import { IMenu } from '@joy/types/common';
@@ -62,7 +62,7 @@ const menus: IMenu[] = [
     protected: true,
     adminOnly: true,
     subMenus: [
-      { title: 'Users', icon: faUsers, href: '/users' },
+      { title: 'Color Variables', icon: faDroplet, href: '/color-variables' },
       { title: 'Coins', icon: faCoins, href: '/coins' },
     ],
   },
