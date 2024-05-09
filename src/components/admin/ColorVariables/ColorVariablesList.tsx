@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { joyRemoveCv } from '@joy/app/serverActions/colorVariables';
+import RemoveItemButton from '@joy/components/admin/RemoveItemButton';
 import JoyTable from '@joy/components/ui/JoyTable';
 import { ColumnData } from '@joy/components/ui/JoyTable/types';
 import { ColorVariable } from '@prisma/client';
@@ -37,6 +39,12 @@ const columns: ColumnData<ColorVariable>[] = [
   {
     label: 'Description',
     dataKey: 'description',
+  },
+  {
+    label: 'Actions',
+    dataKey: 'joyId',
+    renderComponent: (joyId) => <RemoveItemButton joyId={Number(joyId)} apiCall={joyRemoveCv} />,
+    widthRem: 10,
   },
 ];
 
