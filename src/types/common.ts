@@ -10,6 +10,7 @@ export interface PropsWithChildren {
 export type Option = {
   label: string | React.ReactNode;
   value: string | number;
+  icon?: string;
   href?: string;
 };
 

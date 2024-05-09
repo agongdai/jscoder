@@ -1,15 +1,45 @@
 import React from 'react';
+import { FieldError } from 'react-hook-form';
 
-import { default as MuiSelect, SelectProps } from '@mui/material/Select';
+import { Option } from '@joy/types/common';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import { SelectProps } from '@mui/material/Select';
 
-export default function Select(props: SelectProps) {
+import JoySelect from './JoySelect';
+
+type Props = SelectProps & {
+  options: Option[];
+  rhfError: FieldError | undefined;
+  field: any;
+};
+
+export default function Select({ options, rhfError, field, ...props }: Props) {
   return (
-    <MuiSelect
-      {...props}
-      displayEmpty
-      fullWidth
-      variant='filled'
-      classes={{ select: 'py-[1.7rem] flex' }}
-    />
+    <FormControl variant='filled' fullWidth className='my-4'>
+      <InputLabel error={!!rhfError} id='category-select-label'>
+        Category
+      </InputLabel>
+      <JoySelect
+        labelId='category-select-label'
+        id='category-select'
+        label='Product Category'
+        error={!!rhfError}
+        {...field}
+        ref={null}
+      >
+        <MenuItem disabled value=''>
+          <em>Select ...</em>
+        </MenuItem>
+        {options.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </JoySelect>
+      {rhfError && <FormHelperText error>{String(rhfError?.message)}</FormHelperText>}
+    </FormControl>
   );
 }

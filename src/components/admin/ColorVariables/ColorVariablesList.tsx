@@ -42,14 +42,11 @@ const columns: ColumnData<ColorVariable>[] = [
 
 export default function ColorVariablesList({ colorVariables = [] }: Props) {
   return (
-    <>
-      <h1>Color Variables</h1>
-      <JoyTable<ColorVariable>
-        data={colorVariables}
-        columns={columns}
-        defaultSortingField='joyId'
-        defaultSortingDirection=''
-      />
-    </>
+    <JoyTable<ColorVariable>
+      data={colorVariables}
+      columns={columns}
+      defaultSortingField='joyId'
+      defaultSortingDirection=''
+    />
   );
 }

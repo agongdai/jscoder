@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
 import domReducer from './dom/slice';
+import flagsReducer from './flags/slice';
 import themingReducer from './theming/slice';
 import { loadState } from './localStorage';
 
@@ -13,6 +14,7 @@ const store = configureStore({
   reducer: {
     dom: domReducer,
     theming: themingReducer,
+    flags: flagsReducer,
   },
   preloadedState: loadState(),
 });

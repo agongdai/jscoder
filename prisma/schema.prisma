@@ -27,7 +27,7 @@ model ColorVariable {
   joyId       Int          @id @default(autoincrement())
   name        String
   category    String? // system, reference, surface, etc.
-  key         String
+  key         String       @unique
   description String?
   themeColors ThemeColor[]
 }

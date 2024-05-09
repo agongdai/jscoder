@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -23,25 +22,9 @@ import SignIn from '@joy/components/SignIn';
 import SignOut from '@joy/components/SignOut';
 import ThemeSwitch from '@joy/components/ThemeSwitch';
 import JoyLink from '@joy/components/ui/JoyLink';
-import Seo from '@joy/data/seo.json';
 import { getTranslations } from '@joy/i18n/translations';
 import { ParamsWithLng } from '@joy/types/i18n';
 import Button from '@mui/material/Button';
-
-export const metadata: Metadata = {
-  metadataBase: new URL(Seo.siteUrl),
-  title: Seo.title,
-  description: Seo.description,
-  keywords: Seo.keywords,
-  openGraph: {
-    title: Seo.title,
-    description: Seo.description,
-  },
-  twitter: {
-    title: Seo.title,
-    description: Seo.description,
-  },
-};
 
 export default async function Home({ params: { lang } }: { params: ParamsWithLng }) {
   const messages = await getTranslations(lang);
