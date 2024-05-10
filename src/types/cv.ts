@@ -4,9 +4,10 @@ export enum CvCategory {
   SURFACE = 'surface',
 }
 
-export interface IFormNewCv {
+export interface IFormCv {
+  joyId?: number;
   name: string;
-  category: CvCategory | '';
+  category: CvCategory | string | null;
   key: string;
   description: string;
 }

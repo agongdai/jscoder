@@ -1,10 +1,7 @@
 'use server';
-import { joyRemoveItemFromDb } from '@joy/app/serverActions/utils';
-import { auth } from '@joy/auth';
+import { joyCreateItem, joyRemoveItemFromDb, joyUpdateItem } from '@joy/app/serverActions/base';
 import prisma from '@joy/db';
-import { HttpStatusCode } from '@joy/types/api';
-import { IFormNewCv } from '@joy/types/cv';
-import { apiFailure, apiSuccess } from '@joy/utils/api';
+import { IFormCv } from '@joy/types/cv';
 import { ColorVariable } from '@prisma/client';
 
 /**
@@ -18,30 +15,8 @@ export async function joyFetchColorVariables(): Promise<ColorVariable[]> {
  *
  * @param cv
  */
-export async function joyCreateCv(cv: IFormNewCv) {
-  const session = await auth();
-  const sessionUser = session?.user;
-  if (!sessionUser?.isAdmin) {
-    return apiFailure(HttpStatusCode.Unauthorized);
-  }
-
-  const existingCoin = await prisma.colorVariable.findFirst({
-    where: {
-      key: cv.key,
-    },
-  });
-
-  if (existingCoin) {
-    return apiFailure(HttpStatusCode.Conflict, `The color variable ${cv.key} exists already.`);
-  }
-
-  const newCv = await prisma.colorVariable.create({
-    data: {
-      ...cv,
-    },
-  });
-
-  return apiSuccess<ColorVariable>(newCv);
+export async function joyCreateCv(cv: IFormCv) {
+  return joyCreateItem<IFormCv, ColorVariable>(cv, prisma.colorVariable, { admin: true }, 'key');
 }
 
 /**
@@ -49,5 +24,13 @@ export async function joyCreateCv(cv: IFormNewCv) {
  * @param joyId
  */
 export async function joyRemoveCv(joyId: number) {
-  return joyRemoveItemFromDb(joyId, prisma.colorVariable);
+  return joyRemoveItemFromDb(joyId, prisma.colorVariable, { admin: true });
+}
+
+/**
+ * Update color variable by id.
+ * @param cv
+ */
+export async function joyUpdateCv(cv: ColorVariable) {
+  return joyUpdateItem<ColorVariable>(cv, prisma.colorVariable, { admin: true });
 }

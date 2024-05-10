@@ -5,11 +5,11 @@ import { Control, Controller, FieldErrors } from 'react-hook-form';
 
 import Select from '@joy/components/form/Select';
 import TextField from '@joy/components/form/TextField';
-import { CvCategory, IFormNewCv } from '@joy/types/cv';
+import { CvCategory, IFormCv } from '@joy/types/cv';
 
 interface Props {
-  control: Control<IFormNewCv>;
-  errors: FieldErrors<IFormNewCv>;
+  control: Control<IFormCv>;
+  errors: FieldErrors<IFormCv>;
   update?: boolean;
 }
 
@@ -32,7 +32,6 @@ export default function CreateCoinForm({ control, errors, update }: Props) {
             required: 'Please provide a name.',
           }}
           name='name'
-          disabled={update}
           control={control}
         />
       </div>
@@ -56,7 +55,6 @@ export default function CreateCoinForm({ control, errors, update }: Props) {
           rules={{
             required: 'Please provide a category.',
           }}
-          disabled={update}
           name='category'
           control={control}
         />
@@ -78,6 +76,7 @@ export default function CreateCoinForm({ control, errors, update }: Props) {
             required: 'Please provide a key.',
           }}
           name='key'
+          disabled={update}
           control={control}
         />
       </div>

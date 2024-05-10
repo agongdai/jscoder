@@ -8,7 +8,8 @@ import { faTrashCan } from '@fortawesome/pro-duotone-svg-icons';
 import AwesomeIcon from '@joy/components/AwesomeIcon';
 import { ApiResponse } from '@joy/types/api';
 import { StyleVariant } from '@joy/types/common';
-import { Button, Popover } from '@mui/material';
+import Button from '@mui/material/Button';
+import Popover from '@mui/material/Popover';
 
 interface Props<T> {
   joyId: number;
@@ -53,7 +54,7 @@ export default function RemoveItemButton<T>({
     <div>
       <AwesomeIcon
         icon={faTrashCan}
-        tooltip={`Remove this item`}
+        tooltip={`Remove`}
         onClick={handleClick}
         size='lg'
         variant={StyleVariant.Danger}

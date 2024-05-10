@@ -5,16 +5,15 @@ import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 
-import { faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { joyCreateCv } from '@joy/app/serverActions/colorVariable';
 import ColorVariableForm from '@joy/components/admin/ColorVariable/ColorVariableForm';
-import AwesomeIcon from '@joy/components/AwesomeIcon';
-import JoyLoadingButton from '@joy/components/ui/JoyLoadingButton';
+import FormModal from '@joy/components/modal/FormModal';
 import { useJoyDispatch, useJoySelector } from '@joy/store';
 import { toggleCreateCvModal } from '@joy/store/flags/actions';
 import { selectCreateCvModalOpen } from '@joy/store/flags/selectors';
-import { IFormNewCv } from '@joy/types/cv';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { IFormCv } from '@joy/types/cv';
+
+const formId = 'create-cv-form';
 
 export default function CreateCvModal() {
   const dispatch = useJoyDispatch();
@@ -27,7 +26,7 @@ export default function CreateCvModal() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<IFormNewCv>({
+  } = useForm<IFormCv>({
     defaultValues: {
       name: '',
       category: '',
@@ -36,7 +35,7 @@ export default function CreateCvModal() {
     },
   });
 
-  const onSubmit = async (data: IFormNewCv) => {
+  const onSubmit = async (data: IFormCv) => {
     const res = await joyCreateCv(data);
     if (res.success) {
       reset();
@@ -49,27 +48,16 @@ export default function CreateCvModal() {
   };
 
   return (
-    <Dialog
+    <FormModal
       open={Boolean(createCvModalOpen)}
       onClose={onClose}
-      maxWidth='sm'
-      classes={{ paper: 'w-full' }}
+      isSubmitting={isSubmitting}
+      title='Create Color Variable'
+      formId={formId}
     >
-      <DialogTitle classes={{ root: 'flex justify-between items-center' }}>
-        Create Coin
-        <AwesomeIcon icon={faXmark} size='sm' onClick={onClose} tooltip='Cancel' />
-      </DialogTitle>
-      <DialogContent>
-        <form id='create-coin-form' onSubmit={handleSubmit(onSubmit)} className='w-full'>
-          <ColorVariableForm control={control} errors={errors} />
-        </form>
-      </DialogContent>
-      <DialogActions classes={{ root: 'justify-between' }}>
-        <Button onClick={onClose} color='secondary' variant='contained'>
-          Cancel
-        </Button>
-        <JoyLoadingButton formId='create-coin-form' loading={isSubmitting} />
-      </DialogActions>
-    </Dialog>
+      <form id={formId} onSubmit={handleSubmit(onSubmit)} className='w-full'>
+        <ColorVariableForm control={control} errors={errors} />
+      </form>
+    </FormModal>
   );
 }

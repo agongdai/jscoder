@@ -4,8 +4,10 @@ import React from 'react';
 
 import { joyRemoveCv } from '@joy/app/serverActions/colorVariable';
 import RemoveItemButton from '@joy/components/operation/RemoveItemButton';
+import UpdateCoinButton from '@joy/components/operation/UpdateItemButton';
 import JoyTable from '@joy/components/ui/JoyTable';
 import { ColumnData } from '@joy/components/ui/JoyTable/types';
+import { setCvBeingUpdated } from '@joy/store/flags/actions';
 import { ColorVariable } from '@prisma/client';
 
 interface Props {
@@ -44,13 +46,18 @@ const columns: ColumnData<ColorVariable>[] = [
   {
     label: 'Actions',
     dataKey: 'joyId',
-    renderComponent: (joyId) => (
-      <RemoveItemButton<ColorVariable> joyId={Number(joyId)} apiCall={joyRemoveCv} />
+    renderComponent: (joyId, row) => (
+      <div className='grid grid-cols-2 gap-1'>
+        <RemoveItemButton<ColorVariable> joyId={Number(joyId)} apiCall={joyRemoveCv} />
+        <UpdateCoinButton<ColorVariable>
+          reduxAction={setCvBeingUpdated}
+          item={row as ColorVariable}
+        />
+      </div>
     ),
     widthRem: 10,
   },
 ];
-
 export default function ColorVariablesList({ colorVariables = [] }: Props) {
   return (
     <JoyTable<ColorVariable>
