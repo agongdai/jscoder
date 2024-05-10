@@ -14,21 +14,17 @@ export const restApiSuccess = <T>(data: T) =>
     message: HttpStatusMessage[HttpStatusCode.Ok],
   });
 
-export const apiFailure = (
-  status = HttpStatusCode.InternalServerError,
-  message = HttpStatusMessage[HttpStatusCode.InternalServerError],
-) => ({
-  message: HttpStatusMessage[status] || message,
+export const apiFailure = (status = HttpStatusCode.InternalServerError, message?: string) => ({
+  message:
+    message || HttpStatusMessage[status] || HttpStatusMessage[HttpStatusCode.InternalServerError],
   status,
   success: false,
 });
 
-export const restApiFailure = (
-  status = HttpStatusCode.InternalServerError,
-  message = HttpStatusMessage[HttpStatusCode.InternalServerError],
-) =>
+export const restApiFailure = (status = HttpStatusCode.InternalServerError, message?: string) =>
   Response.json({
-    message: HttpStatusMessage[status] || message,
+    message:
+      message || HttpStatusMessage[status] || HttpStatusMessage[HttpStatusCode.InternalServerError],
     status,
     success: false,
   });

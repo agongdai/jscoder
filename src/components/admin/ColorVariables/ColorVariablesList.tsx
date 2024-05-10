@@ -29,12 +29,13 @@ const columns: ColumnData<ColorVariable>[] = [
     label: 'Category',
     dataKey: 'category',
     sortable: true,
-    widthRem: 10,
+    widthRem: 12,
   },
   {
     label: 'Key',
     dataKey: 'key',
     sortable: true,
+    widthRem: 20,
   },
   {
     label: 'Description',
@@ -43,7 +44,9 @@ const columns: ColumnData<ColorVariable>[] = [
   {
     label: 'Actions',
     dataKey: 'joyId',
-    renderComponent: (joyId) => <RemoveItemButton joyId={Number(joyId)} apiCall={joyRemoveCv} />,
+    renderComponent: (joyId) => (
+      <RemoveItemButton<ColorVariable> joyId={Number(joyId)} apiCall={joyRemoveCv} />
+    ),
     widthRem: 10,
   },
 ];
