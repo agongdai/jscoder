@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { joyRemoveCv } from '@joy/app/serverActions/colorVariables';
-import RemoveItemButton from '@joy/components/admin/RemoveItemButton';
+import { joyRemoveCv } from '@joy/app/serverActions/colorVariable';
+import RemoveItemButton from '@joy/components/operation/RemoveItemButton';
 import JoyTable from '@joy/components/ui/JoyTable';
 import { ColumnData } from '@joy/components/ui/JoyTable/types';
 import { ColorVariable } from '@prisma/client';

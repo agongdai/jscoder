@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { joyFetchColorVariables } from '@joy/app/serverActions/colorVariables';
-import ColorVariablesList from '@joy/components/admin/ColorVariables';
-import CreateCvButton from '@joy/components/admin/ColorVariables/CreateCvButton';
-import CreateCvModal from '@joy/components/modals/CreateCvModal';
+import { joyFetchColorVariables } from '@joy/app/serverActions/colorVariable';
+import ColorVariablesList from '@joy/components/admin/ColorVariable';
+import CreateCvButton from '@joy/components/admin/ColorVariable/CreateCvButton';
+import CreateCvModal from '@joy/components/modal/CreateCvModal';
 
 export const revalidate = 10;
 

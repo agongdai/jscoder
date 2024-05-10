@@ -6,8 +6,8 @@ import { enqueueSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 
 import { faXmark } from '@fortawesome/pro-solid-svg-icons';
-import { joyCreateCv } from '@joy/app/serverActions/colorVariables';
-import ColorVariableForm from '@joy/components/admin/ColorVariables/ColorVariableForm';
+import { joyCreateCv } from '@joy/app/serverActions/colorVariable';
+import ColorVariableForm from '@joy/components/admin/ColorVariable/ColorVariableForm';
 import AwesomeIcon from '@joy/components/AwesomeIcon';
 import JoyLoadingButton from '@joy/components/ui/JoyLoadingButton';
 import { useJoyDispatch, useJoySelector } from '@joy/store';
