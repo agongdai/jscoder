@@ -27,6 +27,8 @@ export default function UpdateCoinModal() {
       category: cvToUpdate?.category || '',
       key: cvToUpdate?.key || '',
       description: cvToUpdate?.description || '',
+      docUrl: cvToUpdate?.docUrl || '',
+      muiColor: cvToUpdate?.muiColor || false,
     }),
     [cvToUpdate],
   );
@@ -70,7 +72,7 @@ export default function UpdateCoinModal() {
       open={Boolean(cvToUpdate)}
       onClose={onClose}
       isSubmitting={isSubmitting}
-      title={`Update Color Variable ${cvToUpdate?.name}`}
+      title={`Update Color Variable ${cvToUpdate?.name || ''}`}
       formId={formId}
     >
       <form id={formId} onSubmit={handleSubmit(onSubmit)} className='w-full'>

@@ -12,7 +12,7 @@ export async function joyFetchColorVariables(): Promise<ColorVariable[]> {
 }
 
 /**
- *
+ * Create color variable.
  * @param cv
  */
 export async function joyCreateCv(cv: IFormCv) {

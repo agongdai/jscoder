@@ -19,7 +19,7 @@ export default function MyexFormatter({
   }
 
   if (ValueFormat.Link === format) {
-    return <Link href={String(value)} />;
+    return <Link href={String(value || '')} />;
   }
 
   if (ValueFormat.Image === format) {

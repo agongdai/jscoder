@@ -1,5 +1,6 @@
 export enum CvCategory {
-  SYSTEM = 'system',
+  MUI_VARIANT = 'mui-variant',
+  MUI_PALETTE = 'mui-palette',
   REFERENCE = 'reference',
   SURFACE = 'surface',
 }
@@ -9,5 +10,7 @@ export interface IFormCv {
   name: string;
   category: CvCategory | string | null;
   key: string;
-  description: string;
+  docUrl?: string;
+  muiColor?: boolean;
+  description?: string;
 }

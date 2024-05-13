@@ -84,7 +84,7 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
           priority
         />
       </div>
-      <Button variant='contained' color='primary' size='large'>
+      <Button variant='contained' color='info' size='large'>
         This is a MUI button.
       </Button>
       <div className='mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left'>

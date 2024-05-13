@@ -18,7 +18,7 @@ type Props = SelectProps & {
 
 export default function Select({ options, rhfError, field, ...props }: Props) {
   return (
-    <FormControl variant='filled' fullWidth className='my-4'>
+    <FormControl variant='filled' fullWidth>
       <InputLabel error={!!rhfError} id='category-select-label'>
         Category
       </InputLabel>

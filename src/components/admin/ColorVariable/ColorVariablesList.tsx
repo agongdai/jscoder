@@ -8,6 +8,7 @@ import UpdateCoinButton from '@joy/components/operation/UpdateItemButton';
 import JoyTable from '@joy/components/ui/JoyTable';
 import { ColumnData } from '@joy/components/ui/JoyTable/types';
 import { setCvBeingUpdated } from '@joy/store/flags/actions';
+import { ValueFormat } from '@joy/types/common';
 import { ColorVariable } from '@prisma/client';
 
 interface Props {
@@ -25,19 +26,31 @@ const columns: ColumnData<ColorVariable>[] = [
     label: 'Name',
     dataKey: 'name',
     sortable: true,
-    widthRem: 20,
+    widthRem: 24,
+  },
+  {
+    label: 'Is MUI color?',
+    dataKey: 'muiColor',
+    sortable: true,
+    widthRem: 12,
   },
   {
     label: 'Category',
     dataKey: 'category',
     sortable: true,
-    widthRem: 12,
+    widthRem: 14,
   },
   {
     label: 'Key',
     dataKey: 'key',
     sortable: true,
-    widthRem: 20,
+    widthRem: 24,
+  },
+  {
+    label: 'Doc URL',
+    dataKey: 'docUrl',
+    widthRem: 8,
+    format: ValueFormat.Link,
   },
   {
     label: 'Description',
@@ -55,7 +68,7 @@ const columns: ColumnData<ColorVariable>[] = [
         />
       </div>
     ),
-    widthRem: 10,
+    widthRem: 7,
   },
 ];
 export default function ColorVariablesList({ colorVariables = [] }: Props) {

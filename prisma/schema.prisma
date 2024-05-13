@@ -29,6 +29,8 @@ model ColorVariable {
   category    String? // system, reference, surface, etc.
   key         String       @unique
   description String?
+  docUrl      String?
+  muiColor    Boolean?
   themeColors ThemeColor[]
 }
 

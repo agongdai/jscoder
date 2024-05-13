@@ -5,9 +5,9 @@ import AwesomeIcon from '@joy/components/AwesomeIcon';
 import JoyLink from '@joy/components/ui/JoyLink';
 
 export default function Link({ href }: { href: string }) {
-  return (
+  return href ? (
     <JoyLink href={href}>
       <AwesomeIcon icon={faGlobePointer} size='lg' tooltip={href} />
     </JoyLink>
-  );
+  ) : '-';
 }

@@ -8,6 +8,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +24,11 @@ export default function FormModal({ children, formId, title, open, onClose, isSu
     <Dialog open={open} onClose={onClose} maxWidth='sm' classes={{ paper: 'w-full' }}>
       <DialogTitle classes={{ root: 'flex justify-between items-center' }}>
         {title}
-        <AwesomeIcon icon={faXmark} size='sm' onClick={onClose} tooltip='Cancel' />
+        <div className='flex'>
+          <IconButton onClick={onClose}>
+            <AwesomeIcon icon={faXmark} size='sm' tooltip='Cancel' className='w-5 h-5' />
+          </IconButton>
+        </div>
       </DialogTitle>
       <DialogContent>{children}</DialogContent>
       <DialogActions classes={{ root: 'justify-between' }}>

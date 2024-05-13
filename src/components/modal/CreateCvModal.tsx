@@ -32,6 +32,8 @@ export default function CreateCvModal() {
       category: '',
       key: '',
       description: '',
+      docUrl: '',
+      muiColor: false,
     },
   });
 
