@@ -3,9 +3,9 @@
 import React from 'react';
 import { Control, Controller, FieldErrors } from 'react-hook-form';
 
+import Checkbox from '@joy/components/form/Checkbox';
 import Select from '@joy/components/form/Select';
 import TextField from '@joy/components/form/TextField';
-import Checkbox from '@joy/components/form/Checkbox';
 import { CvCategory, IFormCv } from '@joy/types/cv';
 
 interface Props {
@@ -65,13 +65,7 @@ export default function CreateCoinForm({ control, errors, update }: Props) {
         </div>
         <div className='pt-6'>
           <Controller
-            render={({ field }) => (
-              <Checkbox
-                label={'MUI Color'}
-                {...field}
-                ref={null}
-              />
-            )}
+            render={({ field }) => <Checkbox label={'MUI Color'} {...field} ref={null} />}
             name='muiColor'
             control={control}
           />

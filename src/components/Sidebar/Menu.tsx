@@ -53,14 +53,15 @@ export default function Menu({ menu, showMini }: Props) {
         root: cx('block my-2', {
           'before:h-full before:z-10 before:block before:content-[" "] before:w-2 before:absolute before:left-0 before:top-0 before:rounded-e-[0.6rem] before:bg-primary-main':
             selected,
+          'before:w-[0.6rem]': selected && showMini,
         }),
       }}
     >
       <ListItemButton
         color='secondary'
-        selected={selected}
+        selected={selected || hasSubMenus}
         onClick={handleClick}
-        classes={{ root: cx('flex justify-between py-0', { 'pl-4': showMini }) }}
+        classes={{ root: cx('flex justify-between py-0', { 'pl-4': showMini, 'pl-5': !showMini }) }}
       >
         <JoyLink
           href={hasSubMenus ? '/' : (menu.protected ? `/@me` : '') + menu.href}
@@ -69,7 +70,7 @@ export default function Menu({ menu, showMini }: Props) {
         >
           <JoyTooltip title={showMini ? menu.title : ''} placement='right'>
             <ListItemIcon>
-              <AwesomeIcon icon={menu.icon} size='lg' contrast={selected} />
+              <AwesomeIcon icon={menu.icon} size='lg' contrast={selected} className='w-6 h-6' />
             </ListItemIcon>
           </JoyTooltip>
           <ListItemText
@@ -77,7 +78,9 @@ export default function Menu({ menu, showMini }: Props) {
             classes={{ root: 'text-text-primary dark:text-text-primary-1' }}
           />
         </JoyLink>
-        {hasSubMenus && <AwesomeIcon icon={open ? faChevronUp : faChevronDown} size='sm' />}
+        {hasSubMenus && !showMini && (
+          <AwesomeIcon icon={open ? faChevronUp : faChevronDown} size='sm' />
+        )}
       </ListItemButton>
       {hasSubMenus && (
         <Collapse in={open} timeout='auto' unmountOnExit>

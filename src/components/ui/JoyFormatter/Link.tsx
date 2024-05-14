@@ -9,5 +9,7 @@ export default function Link({ href }: { href: string }) {
     <JoyLink href={href}>
       <AwesomeIcon icon={faGlobePointer} size='lg' tooltip={href} />
     </JoyLink>
-  ) : '-';
+  ) : (
+    '-'
+  );
 }

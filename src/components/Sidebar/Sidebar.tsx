@@ -3,7 +3,7 @@ import React from 'react';
 import { useSession } from 'next-auth/react';
 import cx from 'classnames';
 
-import { faChevronLeft, faChevronRight } from '@fortawesome/pro-solid-svg-icons';
+import { faBars, faChevronLeft } from '@fortawesome/pro-solid-svg-icons';
 import AwesomeIcon from '@joy/components/AwesomeIcon';
 import JoyImage from '@joy/components/ui/JoyImage';
 import JoyLink from '@joy/components/ui/JoyLink';
@@ -37,14 +37,23 @@ export default function Sidebar() {
     >
       <div className='flex flex-col justify-between h-full'>
         <div>
-          <Toolbar classes={{ root: cx('flex justify-between', { 'px-0': showMini }) }}>
-            <JoyLink href='/'>
-              <JoyImage src='/jscoder.png' alt='Joy Trading' width={48} height={48} />
-            </JoyLink>
-            {!xlDown && (
-              <JoyTooltip title='Toggle Mini Sidebar' placement={showMini ? 'right' : 'bottom'}>
+          <Toolbar
+            classes={{
+              root: cx('flex', { 'justify-center': showMini, 'justify-between': !showMini }),
+            }}
+          >
+            {showMini ? (
+              <AwesomeIcon icon={faBars} size='lg' onClick={toggleShowMini} />
+            ) : (
+              <JoyLink href='/'>
+                <JoyImage src='/jscoder.png' alt='Joy Coder' width={48} height={48} />
+              </JoyLink>
+            )}
+
+            {!xlDown && !showMini && (
+              <JoyTooltip title='Toggle Mini Sidebar' placement={'top'}>
                 <div onClick={toggleShowMini} className='cursor-pointer'>
-                  <AwesomeIcon icon={showMini ? faChevronRight : faChevronLeft} size='sm' />
+                  <AwesomeIcon icon={faChevronLeft} size='sm' />
                 </div>
               </JoyTooltip>
             )}
@@ -58,8 +67,8 @@ export default function Sidebar() {
               ))}
           </List>
         </div>
-        <div className='p-8'>
-          <JoyImage src='/jscoder.png' alt='Joy Trading' width={500} height={500} />
+        <div className={cx('p-8', { 'p-2': showMini })}>
+          <JoyImage src='/jscoder.png' alt='Joy Coder' width={500} height={500} />
         </div>
       </div>
     </aside>
