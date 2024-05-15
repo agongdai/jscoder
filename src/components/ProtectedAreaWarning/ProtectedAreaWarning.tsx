@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignIn from '@joy/components/SignIn';
+import SignIn from '@joy/components/operation/SignIn';
 import Alert from '@mui/material/Alert';
 
 export default function ProtectedAreaWarning({ adminOnly = false }: { adminOnly?: boolean }) {

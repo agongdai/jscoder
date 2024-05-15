@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 
-import SignIn from '@joy/components/SignIn';
-import SignOut from '@joy/components/SignOut';
+import SignIn from '@joy/components/operation/SignIn';
+import SignOut from '@joy/components/operation/SignOut';
 import JoyTooltip from '@joy/components/ui/JoyTooltip';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';

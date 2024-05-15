@@ -5,10 +5,10 @@ import cx from 'classnames';
 
 import { faBars } from '@fortawesome/pro-solid-svg-icons';
 import AwesomeIcon from '@joy/components/AwesomeIcon';
-import LangSwitch from '@joy/components/LangSwitch';
-import ThemeSwitch from '@joy/components/ThemeSwitch';
+import LangSwitch from '@joy/components/operation/LangSwitch';
+import ThemeSwitch from '@joy/components/operation/ThemeSwitch';
+import UserMenu from '@joy/components/operation/UserMenu';
 import JoyLink from '@joy/components/ui/JoyLink';
-import UserMenu from '@joy/components/UserMenu';
 import useScrollDirection from '@joy/hooks/useScrollDirection';
 import useSidebar from '@joy/hooks/useSidebar';
 import { useJoyDispatch, useJoySelector } from '@joy/store';

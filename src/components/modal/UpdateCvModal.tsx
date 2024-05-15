@@ -53,6 +53,7 @@ export default function UpdateCoinModal() {
 
     const res = await joyUpdateCv({
       ...data,
+      description: data?.description || '',
       joyId: cvToUpdate.joyId,
     });
 

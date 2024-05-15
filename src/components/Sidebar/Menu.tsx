@@ -92,13 +92,17 @@ export default function Menu({ menu, showMini }: Props) {
                 <ListItem key={subMenu.title} classes={{ root: 'block p-0' }}>
                   <ListItemButton
                     selected={exactSelect}
-                    classes={{ root: cx('py-0 my-1', { 'pl-4': showMini }) }}
+                    classes={{ root: cx('py-0 my-1', { 'pl-5': showMini }) }}
                     onClick={hideMobileSidebar}
                   >
                     <JoyLink href={subMenuHref} className='py-1 hover:no-underline'>
                       <JoyTooltip title={showMini ? subMenu.title : ''} placement='right'>
                         <ListItemIcon>
-                          <AwesomeIcon icon={subMenu.icon} size='lg' contrast={exactSelect} />
+                          <AwesomeIcon
+                            icon={subMenu.icon}
+                            className='w-5 h-5'
+                            contrast={exactSelect}
+                          />
                         </ListItemIcon>
                       </JoyTooltip>
                       <ListItemText

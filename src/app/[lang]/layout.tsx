@@ -7,7 +7,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import { auth } from '@joy/auth';
 import Footer from '@joy/components/Footer';
 import Header from '@joy/components/Header';
-import NewUserCheck from '@joy/components/NewUserCheck';
+import NewUserCheck from '@joy/components/operation/NewUserCheck';
 import ScrollTopHolder from '@joy/components/ScrollTopHolder';
 import Sidebar from '@joy/components/Sidebar';
 import Seo from '@joy/data/seo.json';

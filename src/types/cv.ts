@@ -10,7 +10,7 @@ export interface IFormCv {
   name: string;
   category: CvCategory | string | null;
   key: string;
-  docUrl?: string;
-  muiColor?: boolean;
-  description?: string;
+  docUrl: string | null;
+  muiColor: boolean | null;
+  description?: string | null;
 }
