@@ -16,8 +16,6 @@ import {
 } from '@fortawesome/pro-solid-svg-icons';
 import { auth } from '@joy/auth';
 import AwesomeIcon from '@joy/components/AwesomeIcon';
-import BlankModal from '@joy/components/BlankModal';
-import ClientDummy from '@joy/components/ClientDummy';
 import SignIn from '@joy/components/operation/SignIn';
 import SignOut from '@joy/components/operation/SignOut';
 import ThemeSwitch from '@joy/components/operation/ThemeSwitch';
@@ -33,11 +31,9 @@ export default async function Home({ params: { lang } }: { params: ParamsWithLng
     <div className='flex flex-col items-center'>
       <h1>H1 Title</h1>
       <ThemeSwitch />
-      <ClientDummy />
       <SignIn />
       <SignOut />
       <pre>{JSON.stringify(session?.user, null, 2)}</pre>
-      <BlankModal />
       JoyLink: <JoyLink href='/theming'>Theming</JoyLink>
       <div className='z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex'>
         <p className='left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30'>

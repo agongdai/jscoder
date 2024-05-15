@@ -3,6 +3,7 @@ export enum CvCategory {
   MUI_PALETTE = 'mui-palette',
   REFERENCE = 'reference',
   SURFACE = 'surface',
+  SYSTEM = 'system',
 }
 
 export interface IFormCv {

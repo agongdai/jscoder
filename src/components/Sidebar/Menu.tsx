@@ -59,9 +59,15 @@ export default function Menu({ menu, showMini }: Props) {
     >
       <ListItemButton
         color='secondary'
-        selected={selected || hasSubMenus}
+        selected={selected}
         onClick={handleClick}
-        classes={{ root: cx('flex justify-between py-0', { 'pl-4': showMini, 'pl-5': !showMini }) }}
+        classes={{
+          root: cx('flex justify-between py-0', {
+            'pl-4': showMini,
+            'pl-5': !showMini,
+            'bg-bg-primary-10': hasSubMenus,
+          }),
+        }}
       >
         <JoyLink
           href={hasSubMenus ? '/' : (menu.protected ? `/@me` : '') + menu.href}

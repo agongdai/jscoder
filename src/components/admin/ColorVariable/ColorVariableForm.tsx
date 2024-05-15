@@ -49,6 +49,7 @@ export default function CreateCoinForm({ control, errors, update }: Props) {
                   { label: 'MUI Palette', value: CvCategory.MUI_PALETTE },
                   { label: 'Reference', value: CvCategory.REFERENCE },
                   { label: 'Surface', value: CvCategory.SURFACE },
+                  { label: 'System', value: CvCategory.SYSTEM },
                 ]}
                 label='Category'
                 placeholder='Category like "system"'

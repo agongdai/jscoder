@@ -4,7 +4,6 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import domReducer from './dom/slice';
 import flagsReducer from './flags/slice';
-import themingReducer from './theming/slice';
 import { loadState } from './localStorage';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -13,7 +12,6 @@ export type AppDispatch = typeof store.dispatch;
 const store = configureStore({
   reducer: {
     dom: domReducer,
-    theming: themingReducer,
     flags: flagsReducer,
   },
   preloadedState: loadState(),
